@@ -6,6 +6,7 @@ const dotenv = require('dotenv');
 const path = require('path');
 const axios = require('axios');
 const rfs = require("rotating-file-stream");
+
 dotenv.config();
 
 const port = process.env.PORT || 3333;
@@ -22,8 +23,6 @@ app.use(
 );
 app.use(cors());
 app.use(express.json());
-
-app.use('/api', require('./src/routes/router.js').default);
 
 app.get('/', (req, res) => {
     res.json({
